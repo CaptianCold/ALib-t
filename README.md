@@ -1,0 +1,2 @@
+# ALib-t
+Shared library
