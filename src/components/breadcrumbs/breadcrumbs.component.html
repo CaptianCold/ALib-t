@@ -1,0 +1,18 @@
+
+<ul>
+    <li *ngFor="let link of breadcrumbLinks" [value]="link">
+        <a *ngIf="link.clickable && link.clickHandler" [id]="link.id" (click)="link.clickHandler()">
+            <img *ngIf="link.imgSrc && link.imgSrc.length > 0" src="{{link.imgSrc}}">
+            <span class="link-text" title="{{link.name}}">{{link.name}}</span>
+        </a>
+        <a *ngIf="link.clickable && !link.clickHandler" [id]="link.id" [routerLink]="link.routeParams">
+            <img *ngIf="link.imgSrc && link.imgSrc.length > 0" src="{{link.imgSrc}}">
+            <span class="link-text" title="{{link.name}}">{{link.name}}</span>
+        </a>
+        <span *ngIf="!link.clickable" [id]="link.id" class="parentSpan">
+            <img *ngIf="link.imgSrc && link.imgSrc?.length > 0" src="{{link.imgSrc}}">
+            <button class="glyphicon glyphicon-glass profile-con" *ngIf="!link.imgSrc && breadcrumbLinks?.length > 1 && link.showIcon" disabled></button>
+            <span class="link-text" title="{{link.name}}">{{link.name}}</span>
+        </span>
+    </li>
+</ul>

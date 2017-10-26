@@ -1,0 +1,18 @@
+:host {
+  display: inline-block;
+
+  li.disabled {
+    color: #977;
+    a {
+      color: #977;
+      pointer-events: none;
+    }
+  }
+
+  li {
+    a {
+      cursor: pointer;
+    }
+  }
+
+}

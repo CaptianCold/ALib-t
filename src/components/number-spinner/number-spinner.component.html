@@ -1,0 +1,32 @@
+<div class="input-group bootstrap-touchspin" [ngClass]="{ 'bootstrap-touchspin-disabled': disabled }">
+    <span class="input-group-btn" *ngIf="!touchSpinOptions.verticalButtons">
+        <button [className] ="touchSpinOptions.buttonDownClass" [disabled]="disabled"
+                formnovalidate (mousedown)="startSpinDown($event)" (mouseup)="stopSpin($event)">
+            -
+        </button>
+    </span>
+    <span class="input-group-addon" *ngIf="touchSpinOptions.prefix">
+        {{touchSpinOptions.prefix}}
+    </span>
+    <input type="text" [(ngModel)]="value" class="form-control" (disabled)="disabled" #inputElement
+           (blur)="checkValue()" (focus)="focus()" (keyup)="keyUp($event)" (keydown)="keyDown($event)"/>
+    <span class="input-group-addon" *ngIf="touchSpinOptions.postfix">
+        {{touchSpinOptions.postfix}}
+    </span>
+    <span class="input-group-btn" *ngIf="!touchSpinOptions.verticalButtons">
+        <button class="btn btn-default" [className]="touchSpinOptions.buttonUpClass" [disabled]="disabled"
+                formnovalidate (mousedown)="startSpinUp($event)" (mouseup)="stopSpin($event)">
+            +
+        </button>
+    </span>
+    <span class="input-group-btn-vertical" *ngIf="touchSpinOptions.verticalButtons">
+        <button formnovalidate  class="bootstrap-touchspin-up" [className]="touchSpinOptions.buttonDownClass" [disabled]="disabled"
+                (mousedown)="startSpinUp($event)" (mouseup)="stopSpin($event)">
+            <i [className]="touchSpinOptions.verticalUpClass"></i>
+        </button>
+        <button formnovalidate class="bootstrap-touchspin-down" [className]="touchSpinOptions.buttonUpClass" [disabled]="disabled"
+                (mousedown)="startSpinDown($event)" (mouseup)="stopSpin($event)">
+            <i [className]="touchSpinOptions.verticalDownClass"></i>
+        </button>
+    </span>
+</div>

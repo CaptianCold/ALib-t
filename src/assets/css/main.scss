@@ -1,0 +1,12 @@
+@import 'lsms-theme.scss';
+
+// Flex layout specific style
+tf-flex-panel {
+  .navbar {
+    >* {
+      display: inline-block;
+      margin: 0 0 0 12px;
+      vertical-align: middle;
+    }
+  }
+}

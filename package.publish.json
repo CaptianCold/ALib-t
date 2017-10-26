@@ -1,0 +1,32 @@
+{
+  "name": "@thermo/angular-shared-module",
+  "version": "1.0.5",
+  "description": "Reusable Angular components, directives, services which could be shared across LSMS projects",
+  "main": "dist/bundles/angular-shared-module.umd.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
+  "keywords": [
+    "angular",
+    "angular4"
+  ],
+  "author": "Divya Raghunathan",
+  "license": "MIT",
+  "repository": {
+    "url": "http://ussjo-tfs13:8080/tfs/Software/SharedWebLib/_git/Angular2Library"
+  },
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "@angular/common": "^4.0.0",
+    "@angular/router": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "bootstrap": "^3.3.7",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "^5.4.1",
+    "zone.js": "^0.8.14"
+  },
+  "scripts": {
+    "publish:patch": "npm version patch && npm publish",
+    "publish:minor": "npm version minor && npm publish",
+    "publish:major": "npm version major && npm publish"
+  }
+}

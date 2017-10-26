@@ -1,0 +1,178 @@
+// Some variables
+$lsms-app-icon-background: #40A6B9;
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  padding-top:51px;
+  overflow:auto;
+  margin:0;
+  min-height: 100%;
+}
+
+.flex {
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: hidden;
+}
+
+.flex-row {
+  @extend .flex;
+  flex-flow: row nowrap;
+}
+
+.flex-col {
+  @extend .flex;
+  flex-flow: column nowrap;
+}
+
+.flex-item {
+  flex: 1;
+}
+
+.flex-item-2 {
+  flex: 2;
+}
+
+.flex-item-3 {
+  flex: 3;
+}
+
+.flex-item-4 {
+  flex: 4;
+}
+
+.pos-relative {
+  position:relative;
+}
+
+.fill-parent {
+  margin: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  vertical-align: middle;
+}
+
+#main-container {
+  height: 100%;
+  margin-left:43px;
+}
+
+.lsms-app {
+  .icon-css-lg {
+    background: $lsms-app-icon-background;
+    margin: 8px;
+    &:hover {
+      background:lighten($lsms-app-icon-background, 10%);
+    }
+
+    a {
+      line-height: 45px;
+      width: 45px;
+      height: 45px;
+      text-align:center;
+      text-decoration:none;
+      color:inherit;
+    }
+  }
+
+  .row {
+    margin-left:0;
+    margin-right:0;
+  }
+}
+
+.panel.panel-default > .panel-container {
+  min-height: 0;
+  border-top: 1px solid #939393;
+}
+
+.modal-backdrop, .modal {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modal-dialog {
+  position: absolute;
+  margin: auto auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* What follows is some styling for custom colors on Bootstrap buttons the mixin sure is fun as well! */
+
+.lsms-button-base {
+  color: #ffffff;
+  font-family: "Roboto", Helvetica Neue, Helvetica, Arial, sans-serif;
+  border-radius: 2px;
+  background-clip: border-box;
+
+  &:active, &.active {
+    box-shadow: inset 0 0 2px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .icon {
+    font-size: 12px;
+    padding-left: 12px;
+  }
+}
+
+@mixin lsms-button($foreground-color, $background-color, $border-color) {
+  @extend .lsms-button-base;
+  color: $foreground-color;
+  background: linear-gradient(to bottom, $background-color 0%, darken($background-color, 10%) 100%) repeat-x 0;
+  border-color: $border-color;
+
+  &:hover, &:focus {
+    color: $foreground-color;
+    background: linear-gradient(to bottom, lighten($background-color, 5%) 0%, darken($background-color, 5%) 100%) repeat-x 0;
+  }
+
+  &:active, &.active {
+    background: lighten($background-color, 10%) !important;
+  }
+
+  &:disabled, &[disabled] {
+    color: desaturate($foreground-color, 20%) !important;
+    background: desaturate($background-color, 20%) none !important;
+  }
+}
+
+.btn-start {
+  @include lsms-button(#ffffff, #009900, #006600);
+}
+
+.loading-app-message {
+  display: inline-block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
+  padding: .4em 1em;
+  border: 1px solid #333;
+  border-radius: 1em;
+  background: #ccc;
+}

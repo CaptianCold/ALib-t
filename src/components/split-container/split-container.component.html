@@ -1,0 +1,16 @@
+<div class="panel-container" [ngClass]="isVertical ? 'vertical' : 'horizontal'">
+  <div class="panel" [style.flex]="ratio"
+       [ngStyle]="isVertical ? { 'min-width': minPanel1 } : { 'min-height': minPanel1 }">
+    <ng-content select="[panel=1]"></ng-content>
+  </div>
+  <div class="splitter"
+       [class.dragging]="isDragging"
+       [ngStyle]="isVertical ? { width: splitterSize + 'px' } : { height:splitterSize + 'px' }"
+       (mousedown)="_startDragging($event)"
+       (touchstart)="_startDragging($event)">
+  </div>
+  <div class="panel" [style.flex]="1 - ratio"
+       [ngStyle]="isVertical ? { 'min-width': minPanel2 } : { 'min-height': minPanel2 }">
+    <ng-content select="[panel=2]"></ng-content>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+:host {
+  .panel-heading {
+    .header-message {
+      margin-left: 20px;
+      font-size: 80%;
+      color: #666;
+    }
+
+    .navbar {
+      > * {
+        display: inline-block;
+        margin: 0 0 0 12px;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &.no-margin {
+    > div.panel {
+      margin: 0;
+    }
+  }
+
+  &.no-padding {
+    > div.panel > div.panel-body {
+      padding: 0;
+    }
+  }
+}
